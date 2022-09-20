@@ -255,6 +255,11 @@
             winnerDiv.style.display = "block"
 
             winnerDiv.innerHTML = "The winner is " + winner
+            if (winner === "player") {
+            winnerDiv.style.backgroundColor = '#FFD700' ;
+        } else {
+            null
+        }
             /* OPPGAVE 2.2: FORKLAR HVA SOM SKJER PÅ LINJE 254 winnerDiv.innerHTML...
              * her er det laget en funksjon for winnerDiv der den blir oversatt til document.GetElementById("winner")
               videre har vi lagt på en .innerHTMl for å skrive ut teksten vi vil ha på siden. 
@@ -265,7 +270,12 @@
             //Now, lastly, let's update the counter on how many games we have played:
             counter = counter + 1
 
+            if(counter >= 1) {
+                document.getElementById("counter").style.color = 'red';
+            }
+
             document.getElementById("counter").innerHTML = counter
+            
             /* OPPGAVE 2.3: FORKLAR HVA SOM SKJER PÅ LINJE 262
              * det som skjer er at antall ganger spillet er spillt blir skrevet ut ved funksjonen counter + 1,
               som vil si at antallet økes med 1 per spill. 
@@ -299,11 +309,7 @@
         function getRandomInt(max) {
             return Math.floor(Math.random() * max);
         };
-        if (winner === true) {
-           document.getElementById("winner").backgroundColor = '#FFD700'
-        } else {
-            null
-        }
+       
     </script>
 </body>
 </html>
