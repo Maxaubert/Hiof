@@ -267,7 +267,9 @@
 
             document.getElementById("counter").innerHTML = counter
             /* OPPGAVE 2.3: FORKLAR HVA SOM SKJER PÅ LINJE 262
-             * _ditt svar her_ 
+             * det som skjer er at antall ganger spillet er spillt blir skrevet ut ved funksjonen counter + 1,
+              som vil si at antallet økes med 1 per spill. 
+             Uten denne ville counteren bare vært 0 hele tiden. 
              */
 
             //And display the button for playing again:
@@ -296,6 +298,11 @@
         //endret feil "function" del av oppgave 1
         function getRandomInt(max) {
             return Math.floor(Math.random() * max);
+        };
+        if (winner === true) {
+           document.getElementById("winner").backgroundColor = '#FFD700'
+        } else {
+            null
         }
     </script>
 </body>
