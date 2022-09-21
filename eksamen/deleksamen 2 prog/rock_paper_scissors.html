@@ -112,6 +112,18 @@
             display: flex;
             justify-content: space-between;
         }
+        #counterPlayer {
+            display: flex;
+            justify-content: space-between;
+        }
+        #counterComputer {
+            display: flex;
+            justify-content: space-between;
+        }
+        #counterTies {
+        display: flex; 
+        justify-content: space-between;
+        }
         #replay {
             background: var(--green);
             color: #fff;
@@ -146,6 +158,15 @@
             <!-- A hidden button to show after a game, that resets and let the player play again -->
             <button id="replay" onClick="restartGame()">Play again</button>
         </div>
+        <div id="counterPlayer">
+            <div>Player wins: <span id="counterP">0</span></div>
+        </div>
+        <div id="counterComputer">
+            <div>Computer wins: <span id="counterC">0</div>
+        </div>
+        <div id="counterTies">
+            <div>Draws: <span id="counterT">0</span></div>
+        </div>
     </section>
 
     <script>
@@ -153,6 +174,9 @@
         let winner = ""
         //And prepare a counter-variable for number of games played:
         let counter = 0
+        let counterP = 0
+        let counterC = 0
+        let counterT = 0
         //Make available signs available in code as an array
         const signs = ["rock", "paper", "scissors"]
         
@@ -256,10 +280,23 @@
 
             winnerDiv.innerHTML = "The winner is " + winner
             if (winner === "player") {
+            winnerDiv.innerHTML = "You win"
+        } if (winner === "computer") {
+            winnerDiv.innerHTML = "You lost"
+        } else {
+            winnerDiv.innerHTML = "It's a tie"
+        }
+            if (winner === "player") {
             winnerDiv.style.backgroundColor = '#FFD700' ;
         } else {
             null
-        }
+        };
+        if (winner === "player") {
+            winnerDiv.innerHTML = "You win"
+        } else {
+            null
+        };
+
             /* OPPGAVE 2.2: FORKLAR HVA SOM SKJER PÅ LINJE 254 winnerDiv.innerHTML...
              * her er det laget en funksjon for winnerDiv der den blir oversatt til document.GetElementById("winner")
               videre har vi lagt på en .innerHTMl for å skrive ut teksten vi vil ha på siden. 
@@ -269,11 +306,30 @@
 
             //Now, lastly, let's update the counter on how many games we have played:
             counter = counter + 1
-
-            if(counter >= 1) {
-                document.getElementById("counter").style.color = 'red';
+            if (winner === "player") {
+                counterP = counterP + 1
+            } else {
+                null
             }
 
+            if (winner === "computer") {
+                counterC = counterC + 1
+            } else {
+                null
+            }
+            
+            if (winner === "undecided") {
+                counterT =+ counterT + 1
+            } else {
+                null
+            }
+
+            if(counter >= 1) {
+                document.getElementById("counter").style.color = '#be5944';
+            }
+            document.getElementById("counterT").innerHTML = counterT
+            document.getElementById("counterC").innerHTML = counterC
+            document.getElementById("counterP").innerHTML = counterP
             document.getElementById("counter").innerHTML = counter
             
             /* OPPGAVE 2.3: FORKLAR HVA SOM SKJER PÅ LINJE 262
