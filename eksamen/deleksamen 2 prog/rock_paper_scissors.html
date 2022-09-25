@@ -170,6 +170,7 @@
     </section>
 
     <script>
+      
         //We'll prepare an empty variable that later will contain the winner
         let winner = ""
         //And prepare a counter-variable for number of games played:
@@ -275,10 +276,17 @@
             }
             //Now we have checks to set the winner. Let's write it to the website.
             //Now you know the drill: show #winner by display: block and fill it with HTML:
+          
             const winnerDiv = document.getElementById("winner")
             winnerDiv.style.display = "block"
 
-            winnerDiv.innerHTML = "The winner is " + winner
+            //winnerDiv.innerHTML = "The winner is " + winner;
+
+            function myFunction(){
+                return( winnerDiv.innerHTML = "The winner is " + winner);
+            }
+           setTimeout(myFunction, 2000)
+           
             if (winner === "player") {
             winnerDiv.innerHTML = "You win"
         } if (winner === "computer") {
